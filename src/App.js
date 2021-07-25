@@ -15,11 +15,14 @@ class App extends Component {
   componentDidMount() {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
-      .then((users) => this.setState({ monsters: users }));
+      .then((users) => this.setState({ monsters: users })); // this gives us an array of users with all the detailes of single user
+    // .then((mubbu) => console.log(mubbu));
   }
 
   render() {
     const { monsters, searchField } = this.state;
+    // const monsters=this.state.monsters;
+    // const searchField=this.state.searchField;
 
     const filteredMonster = monsters.filter((monster) =>
       monster.name.toLowerCase().includes(searchField.toLowerCase())
